@@ -1,4 +1,4 @@
-package org.ttpi.new_world_journey.ships;
+package org.ttpi.new_world_journey.engine.ships;
 
 public class Trinidad extends Ship{
     public Trinidad() {

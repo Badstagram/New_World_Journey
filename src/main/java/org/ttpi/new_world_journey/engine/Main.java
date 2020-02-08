@@ -1,6 +1,6 @@
-package org.ttpi.new_world_journey;
+package org.ttpi.new_world_journey.engine;
 
-import org.ttpi.new_world_journey.ships.*;
+import org.ttpi.new_world_journey.engine.ships.*;
 
 public class Main {
 
@@ -31,7 +31,6 @@ public class Main {
     }
 
     public void nextTick() {
-
         if(ticksThisMonth == 5) {
             currentMonth += 1;
             ticksThisMonth = 0;
@@ -49,26 +48,26 @@ public class Main {
 
         if(!wasPreviousEvent) {
             //shove all events into an event array
-//            Events[] events;
-//
-//            //Calculate total weight of our events
-//            double totalWeight = 0.0d;
-//            for(entry ent : events) {
-//                totalWeight += ent.getWeight();
-//            }
-//
-//            //Calculate random event
-//            int randomIndex = -1;
-//            double random = Math.random() * totalWeight;
-//            for(int i = 0; i < events.length; i++) {
-//                random -= events[i].getWeight();
-//                if(random <= 0.0d) {
-//                    randomIndex = i;
-//                    break;
-//                }
-//            }
-//
-//            Events randomEvent = Events[randomIndex];
+            Events[] events;
+
+            //Calculate total weight of our events
+            double totalWeight = 0.0d;
+            for(events ent : events) {
+                totalWeight += ent.getWeight();
+            }
+
+            //Calculate random event
+            int randomIndex = -1;
+            double random = Math.random() * totalWeight;
+            for(int i = 0; i < events.length; i++) {
+                random -= events[i].getWeight();
+                if(random <= 0.0d) {
+                    randomIndex = i;
+                    break;
+                }
+            }
+
+            Events randomEvent = Events[randomIndex];
         } else {
             // Call idle Event
         }
