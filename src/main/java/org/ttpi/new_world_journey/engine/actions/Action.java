@@ -15,7 +15,7 @@
  */
 package org.ttpi.new_world_journey.engine.actions;
 
-public class Action {
+public class Action{
     private int weight;
     public int[] restrictedMonths;
 

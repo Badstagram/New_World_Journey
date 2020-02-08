@@ -14,9 +14,52 @@
  * limitations under the License.
  */
 package org.ttpi.new_world_journey.engine.actions;
+import org.ttpi.new_world_journey.engine.ships.Ship;
 
-public class ShipAppears {
+
+public class ShipAppears extends Action {
+    private Ship ship;
+
     public ShipAppears() {
-        super();
+        super(90, new int[] {1,2,3});
+    }
+
+    public Ship execute(Ship ship, int argument) {
+        double percent = (Math.random()*100) + 1;
+        if (argument == 0){
+            return ship;
+        }else if(argument == 1){
+            if(percent >= 1 && percent <= 33){
+
+            }else if(percent > 33 && percent <= 66){
+
+            }else{
+
+            }
+        }
+
+        return ship;
+    }
+
+    public void executePirates(int argument){
+        switch(argument){
+            case 0:
+            case 1:
+            case 2:
+        }
+    }
+    public void executeAbandonedShip(int argument){
+        switch(argument){
+            case 0:
+            case 1:
+            case 2:
+        }
+    }
+    public void executeMerchant(int argument){
+        switch(argument){
+            case 0:
+            case 1:
+            case 2:
+        }
     }
 }
