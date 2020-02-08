@@ -3,7 +3,7 @@ package org.ttpi.new_world_journey.engine;
 import org.ttpi.new_world_journey.engine.ships.*;
 import org.ttpi.new_world_journey.engine.events.*;
 
-public class Main {
+public class Engine {
 
     public String user;
     public String shipName;
@@ -13,21 +13,21 @@ public class Main {
     public int targetDistance = 3000;
     public Ship ship;
 
-    public void Main(String discordId, String shipName) {
+    public Engine(String discordId, String shipName) {
         this.user = discordId;
         String lowerCase = shipName.toLowerCase();
         if ("mayflower".equals(lowerCase)) {
-            Ship ship = new Mayflower();
+            this.ship = new Mayflower();
         } else if ("caravel".equals(lowerCase)) {
-            Ship ship = new Caravel();
+            this.ship = new Caravel();
         } else if ("santa maria".equals(lowerCase)) {
-            Ship ship = new SantaMaria();
+            this.ship = new SantaMaria();
         } else if ("trinidad".equals(lowerCase)) {
-            Ship ship = new Trinidad();
+            this.ship = new Trinidad();
         } else if ("endurance".equals(lowerCase)) {
-            Ship ship = new Endurance();
+            this.ship = new Endurance();
         } else {
-            Ship ship = new Mayflower();
+            this.ship = new Mayflower();
         }
     }
 
@@ -47,6 +47,8 @@ public class Main {
             gameOver(false, "User has ran out of food.");
         }
 
+        Kraken event = new Kraken();
+        ship = event.execute(ship, 1);
 
         if(!wasPreviousEvent) {
             //shove all events into an event array
