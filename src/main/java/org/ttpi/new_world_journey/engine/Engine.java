@@ -1,6 +1,7 @@
 package org.ttpi.new_world_journey.engine;
 
 import org.ttpi.new_world_journey.engine.ships.*;
+import org.ttpi.new_world_journey.engine.events.*;
 
 public class Main {
 
@@ -46,28 +47,29 @@ public class Main {
             gameOver(false, "User has ran out of food.");
         }
 
+
         if(!wasPreviousEvent) {
             //shove all events into an event array
-            Events[] events;
-
-            //Calculate total weight of our events
-            double totalWeight = 0.0d;
-            for(events ent : events) {
-                totalWeight += ent.getWeight();
-            }
-
-            //Calculate random event
-            int randomIndex = -1;
-            double random = Math.random() * totalWeight;
-            for(int i = 0; i < events.length; i++) {
-                random -= events[i].getWeight();
-                if(random <= 0.0d) {
-                    randomIndex = i;
-                    break;
-                }
-            }
-
-            Events randomEvent = Events[randomIndex];
+//            Events[] events;
+//
+//            //Calculate total weight of our events
+//            double totalWeight = 0.0d;
+//            for(events ent : events) {
+//                totalWeight += ent.getWeight();
+//            }
+//
+//            //Calculate random event
+//            int randomIndex = -1;
+//            double random = Math.random() * totalWeight;
+//            for(int i = 0; i < events.length; i++) {
+//                random -= events[i].getWeight();
+//                if(random <= 0.0d) {
+//                    randomIndex = i;
+//                    break;
+//                }
+//            }
+//
+//            Events randomEvent = Events[randomIndex];
         } else {
             // Call idle Event
         }

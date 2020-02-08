@@ -4,7 +4,7 @@ public class Ship {
     final int MAX_HEALTH;
     final private int MAX_PASSENGERS;
     private int currentDistance;
-    private int passengers;
+    public int passengers;
     private int happiness;
     private int healthOfShip;
     private int coins;
@@ -34,16 +34,6 @@ public class Ship {
             this.startFood -= n;
             return this.startFood;
         }
-    }
-
-    public int changeHealth(){
-
-    }
-    public int changeCoins(){
-
-    }
-    public int changeHealth(){
-        
     }
 
 }
