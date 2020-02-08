@@ -1,9 +1,9 @@
-package org.ttpi.new_world_journey.engine.events;
+package org.ttpi.new_world_journey.engine.actions;
 
 import org.ttpi.new_world_journey.engine.ships.Ship;
 
-public class Kraken {
-    private int weight = 10;
+public class Kraken extends Action {
+    public int[] restrictedMonths = {1, 2};
     private Ship ship;
 
     public Ship execute(Ship ship, int argument) {
@@ -14,9 +14,5 @@ public class Kraken {
         }
 
         return ship;
-    }
-
-    public int getWeight() {
-        return weight;
     }
 }

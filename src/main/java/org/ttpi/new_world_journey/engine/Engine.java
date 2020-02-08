@@ -1,17 +1,17 @@
 package org.ttpi.new_world_journey.engine;
 
 import org.ttpi.new_world_journey.engine.ships.*;
-import org.ttpi.new_world_journey.engine.events.*;
+import org.ttpi.new_world_journey.engine.actions.*;
 
 public class Engine {
 
-    public String user;
-    public String shipName;
-    public Boolean wasPreviousEvent = false;
-    public int ticksThisMonth = 0;
-    public int currentMonth = 0;
-    public int targetDistance = 3000;
-    public Ship ship;
+    private String user;
+    private String shipName;
+    private Boolean wasPreviousEvent = false;
+    private int ticksThisMonth = 0;
+    private int currentMonth = 0;
+    private int targetDistance = 3000;
+    private Ship ship;
 
     public Engine(String discordId, String shipName) {
         this.user = discordId;
@@ -52,26 +52,29 @@ public class Engine {
 
         if(!wasPreviousEvent) {
             //shove all events into an event array
-//            Events[] events;
-//
-//            //Calculate total weight of our events
-//            double totalWeight = 0.0d;
-//            for(events ent : events) {
-//                totalWeight += ent.getWeight();
-//            }
-//
-//            //Calculate random event
-//            int randomIndex = -1;
-//            double random = Math.random() * totalWeight;
-//            for(int i = 0; i < events.length; i++) {
-//                random -= events[i].getWeight();
-//                if(random <= 0.0d) {
-//                    randomIndex = i;
-//                    break;
-//                }
-//            }
-//
-//            Events randomEvent = Events[randomIndex];
+            Action[] events = {
+                    new Kraken()
+            };
+
+            //Calculate total weight of our events
+            double totalWeight = 0.0d;
+            for(Action ent : events) {
+                totalWeight += ent.getWeight();
+            }
+
+            //Calculate random event
+            int randomIndex = -1;
+            double random = Math.random() * totalWeight;
+            for(int i = 0; i < events.length; i++) {
+                random -= events[i].getWeight();
+                if(random <= 0.0d) {
+                    randomIndex = i;
+                    break;
+                }
+            }
+
+            Action randomWeightedEvent = events[randomIndex];
+            
         } else {
             // Call idle Event
         }
@@ -84,5 +87,33 @@ public class Engine {
         } else {
             //User won the game
         }
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public String getShipName() {
+        return shipName;
+    }
+
+    public int getTicksThisMonth() {
+        return ticksThisMonth;
+    }
+
+    public int getCurrentMonth() {
+        return currentMonth;
+    }
+
+    public int getTargetDistance() {
+        return targetDistance;
+    }
+
+    public int getMilesLeft() {
+        return targetDistance - ship.getCurrentDistance();
+    }
+
+    public Ship getShip() {
+        return ship;
     }
 }
