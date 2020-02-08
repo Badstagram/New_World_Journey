@@ -1,6 +1,6 @@
 package org.ttpi.new_world_journey.ships;
 
-public class Trinidad {
+public class Trinidad extends Ship{
     private int passengers;
     private int happiness;
     private int healthOfShip;

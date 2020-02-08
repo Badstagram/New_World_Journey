@@ -1,6 +1,6 @@
 package org.ttpi.new_world_journey.ships;
 
-public class SantaMaria {
+public class SantaMaria extends Ship{
     private int passengers;
     private int happiness;
     private int healthOfShip;

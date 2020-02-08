@@ -7,32 +7,22 @@ public class Ship {
     public Ship findShip(String name){
         Ship mayFlower = new Mayflower();
         Ship caravel = new Caravel();
-        Ship santaMaria = new SantaMaria;
+        Ship santaMaria = new SantaMaria();
         Ship trinidad = new Trinidad();
         Ship endurance = new Endurance();
-        Ship
         String lowerCase = name.toLowerCase();
-        switch(name){
-            case "mayflower":
-                this.currentShip = mayFlower;
-                return mayFlower;
-                break;
-            case "caravel":
-                this.currentShip = caravel;
-                return caravel;
-                break;
-            case "santa maria":
-                this.currentShip = santaMaria;
-                return santaMaria;
-                break;
-            case "trinidad":
-                this.currentShip = trinidad;
-                return trinidad;
-                break;
-            case "endurance":
-                this.currentShip = endurance;
-                return endurance;
-                break;
+        if ("mayflower".equals(lowerCase)) {
+            return mayFlower;
+        } else if ("caravel".equals(lowerCase)) {
+            return caravel;
+        } else if ("santa maria".equals(lowerCase)) {
+            return santaMaria;
+        } else if ("trinidad".equals(lowerCase)) {
+            return trinidad;
+        } else if ("endurance".equals(lowerCase)) {
+            return endurance;
+        } else {
+            return mayFlower;
         }
     }
 

@@ -1,6 +1,6 @@
 package org.ttpi.new_world_journey.ships;
 
-public class Caravel {
+public class Caravel extends Ship {
     private int passengers;
     private int happiness;
     private int healthOfShip;
