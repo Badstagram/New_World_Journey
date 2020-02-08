@@ -15,15 +15,18 @@
  */
 package org.ttpi.new_world_journey;
 
+import com.jagrosh.jdautilities.command.CommandClientBuilder;
+import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
+import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.api.utils.cache.CacheFlag;
+import net.dv8tion.jda.api.entities.Activity;
 import org.ttpi.new_world_journey.engine.Engine;
 
 import java.util.EnumSet;
 
 public class Main {
     public static void main(String[] args) {
-        Engine controller = new Engine("1", "mayflower");
+        Engine controller = new Engine("1", "", "mayflower");
         controller.nextTick();
         controller.getShip();
         controller.getCurrentMonth();
@@ -32,17 +35,13 @@ public class Main {
         controller.getTicksThisMonth();
         controller.getMilesLeft();
 
-        JDABuilder builder = new JDABuilder(args[0]);
-
-        // Disable parts of the cache
-        builder.setDisabledCacheFlags(EnumSet.of(CacheFlag.ACTIVITY, CacheFlag.VOICE_STATE));
-        // Enable the bulk delete event
-        builder.setBulkDeleteSplittingEnabled(false);
-
-        try{
+        JDABuilder builder = new JDABuilder("Njc1NzY0NDI2MTIwMzY0MDMz.Xj8_IA.sxDVF9jECH-yD4_DTsy-BHk0vz8");
+        builder.addEventListeners(new listener());
+        try {
             builder.build();
-        } catch(Exception e) {
-            System.out.println("Build Error");
+        } catch (Exception e) {
+            System.out.println("[ERROR]: " + e);
         }
+
     }
 }

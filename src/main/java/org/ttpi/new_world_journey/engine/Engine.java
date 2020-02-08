@@ -21,6 +21,7 @@ import org.ttpi.new_world_journey.engine.actions.*;
 public class Engine {
 
     private String user;
+    private String channel;
     private String shipName;
     private Boolean wasPreviousEvent = false;
     private int ticksThisMonth = 0;
@@ -28,7 +29,8 @@ public class Engine {
     private int targetDistance = 3000;
     private Ship ship;
 
-    public Engine(String discordId, String shipName) {
+    public Engine(String discordId, String channelId, String shipName) {
+        this.channel = channelId;
         this.user = discordId;
         String lowerCase = shipName.toLowerCase();
         if ("mayflower".equals(lowerCase)) {
