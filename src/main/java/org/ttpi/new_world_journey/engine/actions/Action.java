@@ -15,11 +15,7 @@
  */
 package org.ttpi.new_world_journey.engine.actions;
 
-<<<<<<< Updated upstream
-
-=======
 import org.ttpi.new_world_journey.engine.ships.Ship;
->>>>>>> Stashed changes
 
 public class Action{
     private int weight;

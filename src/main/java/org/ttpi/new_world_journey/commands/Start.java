@@ -101,7 +101,7 @@ public class Start extends Command {
                                 .setThumbnail("https://i.imgur.com/nlHCKYq.gif")
                                 .setColor(hex2Rgb("#5ccff7"))
                                 .build());
-                        Engine gameEngine = new Engine(event.getAuthor().getId(), event.getChannel().getId(), response);
+                        Engine gameEngine = new Engine(event.getAuthor().getId(), event.getChannel(), response);
                         gameEngine.start();
                     }
                 },

@@ -15,13 +15,18 @@
  */
 package org.ttpi.new_world_journey.engine.actions;
 
+import net.dv8tion.jda.api.entities.MessageChannel;
 import org.ttpi.new_world_journey.engine.ships.Ship;
 
 public class Kraken extends Action {
     private Ship ship;
+    MessageChannel channel;
+    String discordId;
 
-    public Kraken() {
+    public Kraken(String discordId, MessageChannel channel) {
         super(10, new int[]{2,3});
+        channel = channel;
+        discordId = discordId;
     }
 
     @Override

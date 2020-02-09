@@ -15,22 +15,27 @@
  */
 package org.ttpi.new_world_journey.engine;
 
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.MessageChannel;
 import org.ttpi.new_world_journey.engine.ships.*;
 import org.ttpi.new_world_journey.engine.actions.*;
+
+import java.awt.*;
+import java.time.Instant;
 
 public class Engine {
 
     private String user;
-    private String channel;
+    private MessageChannel channel;
     private String shipName;
-    private Boolean wasPreviousEvent = true;
+    private Boolean wasPreviousEvent = false;
     private int ticksThisMonth = 0;
     private int currentMonth = 0;
     private int targetDistance = 3000;
     private Ship ship;
 
-    public Engine(String discordId, String channelId, String shipName) {
-        this.channel = channelId;
+    public Engine(String discordId, MessageChannel channel, String shipName) {
+        this.channel = channel;
         this.user = discordId;
         String lowerCase = shipName.toLowerCase();
         if ("mayflower".equals(lowerCase)) {
@@ -48,19 +53,23 @@ public class Engine {
         }
     }
 
+    public void start() {
+        Island newMerchant = new Island(String user, MessageChannel channel);
+        newMerchant.forceMerchant(ship);
+        nextTick();
+    }
+
+
     public void nextTick() {
         if(ticksThisMonth == 5) {
             currentMonth += 1;
             ticksThisMonth = 0;
         }
 
-        int currentDistance = ship.progressShip(200);
-        if(currentDistance >= targetDistance) {
-            gameOver(true, "User has reached the new world!");
-        }
+        ship.progressShip(200);
 
-        int foodLeft = ship.consumeFood(100);
-        if(foodLeft == 0) {
+        ship.consumeFood(100);
+        if(ship.getStartFood() == 0) {
             gameOver(false, "User has ran out of food.");
         }
 
@@ -97,18 +106,45 @@ public class Engine {
 
         }
 
-    }
-
-    public void gameOver(boolean hasWon, String reason) {
-        if(!hasWon) {
-            //User lost game
+        if(ship.getCurrentDistance() >= targetDistance) {
+            gameOver(true, "User has reached the new world!");
         } else {
-            //User won the game
+            nextTick();
         }
     }
 
-    public void start() {
+    public Color hex2Rgb(String colorStr) {
+        return new Color(
+                Integer.valueOf( colorStr.substring( 1, 3 ), 16 ),
+                Integer.valueOf( colorStr.substring( 3, 5 ), 16 ),
+                Integer.valueOf( colorStr.substring( 5, 7 ), 16 ) );
+    }
 
+
+    public void gameOver(boolean hasWon, String reason) {
+        if(!hasWon) {
+            channel.sendMessage(new EmbedBuilder()
+                    .setTitle("You lost...")
+                    .setDescription(reason)
+                    .setTimestamp(Instant.now())
+                    .setColor(hex2Rgb("#5ccff7"))
+                    .build());
+        } else {
+            channel.sendMessage(new EmbedBuilder()
+                    .setTitle("You Won!")
+                    .setDescription(reason)
+                    .setTimestamp(Instant.now())
+                    .setColor(hex2Rgb("#5ccff7"))
+                    .build());
+        }
+        String user = null;
+        MessageChannel channel = null;
+        String shipName = null;
+        Boolean wasPreviousEvent = false;
+        int ticksThisMonth = 0;
+        int currentMonth = 0;
+        int targetDistance = 3000;
+        Ship ship = null;
     }
 
     public String getUser() {

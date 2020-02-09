@@ -1,10 +1,15 @@
 package org.ttpi.new_world_journey.engine.actions;
 
+import net.dv8tion.jda.api.entities.MessageChannel;
 import org.ttpi.new_world_journey.engine.ships.Ship;
 
 public class TreasureMap extends Action {
-    public TreasureMap() {
+    MessageChannel channel;
+    String discordId;
+    public TreasureMap(String discordId, MessageChannel channel) {
         super(30, new int[] {1,2});
+        channel = channel;
+        discordId = discordId;
     }
     public Ship execute(Ship ship, int argument) {
         double percent = (Math.random()*100) + 1;
