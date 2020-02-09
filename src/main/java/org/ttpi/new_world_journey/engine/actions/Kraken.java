@@ -32,14 +32,14 @@ public class Kraken extends Action {
     }
 
     @Override
-    public Ship execute(Ship ship, int argument) {
+    public Ship execute(Ship ship) {
         System.out.println("[EVENT] - Kraken");
         this.ship = ship;
-        switch (argument){
-            case 1:
-            case 2:
-            default:
-        }
+//        switch (argument){
+//            case 1:
+//            case 2:
+//            default:
+//        }
 
         return ship;
     }

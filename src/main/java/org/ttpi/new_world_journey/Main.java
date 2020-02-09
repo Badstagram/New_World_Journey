@@ -30,14 +30,13 @@ public class Main {
     public static void main(String[] args) throws LoginException {
         EventWaiter waiter = new EventWaiter();
         CommandClientBuilder client = new CommandClientBuilder();
-        client.setEmojis("\uD83D\uDE03", "\uD83D\uDE2E", "\uD83D\uDE26");
         client.setPrefix("!");
         client.addCommands(new Start(waiter));
         client.setOwnerId("275473481108291584");
         client.setCoOwnerIds("288133633552809984");
         client.setCoOwnerIds("174511937151827969");
         new JDABuilder(AccountType.BOT)
-                .setToken("Njc1NzY0NDI2MTIwMzY0MDMz.Xj-MDw.wZ7p-6IrLfUxygIIa0aFoLychik")
+                .setToken("Njc1NzY0NDI2MTIwMzY0MDMz.Xj-UWw.9r0cb8IQHeC9h9DZMIqa3BAd1lw")
                 .setActivity(Activity.playing("loading..."))
                 .addEventListeners(waiter, client.build())
                 .build();

@@ -18,16 +18,16 @@ public class Diseases extends Action {
     }
 
 
-    public Ship execute(Ship ship, int argument) {
+    public Ship execute(Ship ship) {
         System.out.println("[EVENT] - Diseases");
         this.ship = ship;
         double percent = (Math.random() * 100) + 1;
         if (percent >= 1 && percent <= 20) {
-            executeScurvy(argument);
+            //executeScurvy(argument);
         } else if (percent > 20 && percent <= 30) {
-            executeDisentary(argument);
+            //executeDisentary(argument);
         } else {
-            executeFlu(argument);
+            //executeFlu(argument);
         }
         return ship;
     }

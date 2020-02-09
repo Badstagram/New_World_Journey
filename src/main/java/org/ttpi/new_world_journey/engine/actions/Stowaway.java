@@ -15,7 +15,7 @@ public class Stowaway extends Action {
         this.event = event;
     }
 
-    public Ship execute(Ship ship, int argument){
+    public Ship execute(Ship ship){
         this.ship = ship;
         System.out.println("[EVENT] - Stowaway");
         return ship;

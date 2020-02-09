@@ -32,7 +32,7 @@ public class Engine {
     private CommandEvent event;
     private int ticksThisMonth = 0;
     private int currentMonth = 0;
-    private int targetDistance = 160;
+    private int targetDistance = 3000;
     private Ship ship;
     private Instant startTime = Instant.now();
 
@@ -97,8 +97,8 @@ public class Engine {
         }
 
         Action randomWeightedEvent = events[randomIndex];
-        randomWeightedEvent.execute(ship, 1);
 
+        this.ship = randomWeightedEvent.execute(ship);
         if(ship.getCurrentDistance() >= targetDistance) {
             Instant endTime = Instant.now();
             Duration timeElapsed = Duration.between(startTime, endTime);

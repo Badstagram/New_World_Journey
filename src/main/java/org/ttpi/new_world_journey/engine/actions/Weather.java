@@ -16,21 +16,21 @@ public class Weather extends Action {
         this.event = event;
     }
 
-    public Ship execute(Ship ship, int argument) {
+    public Ship execute(Ship ship) {
         System.out.println("[EVENT] - Weather Storm");
         this.ship = ship;
         double percent = (Math.random()*100) + 1;
-            if(percent >= 1 && percent <= 20){
-                executeFog();
-            }else if(percent > 20 && percent <= 30){
-                executeWhirlpool(argument);
-            }else if(percent > 30 && percent <= 80){
-                executeStorm(argument);
-            }else if(percent > 80 && percent <= 89){
-                executeHurricane(argument);
-            }else{
-                executeRainingFish();
-            }
+//            if(percent >= 1 && percent <= 20){
+//                executeFog();
+//            }else if(percent > 20 && percent <= 30){
+//                executeWhirlpool(argument);
+//            }else if(percent > 30 && percent <= 80){
+//                executeStorm(argument);
+//            }else if(percent > 80 && percent <= 89){
+//                executeHurricane(argument);
+//            }else{
+//                executeRainingFish();
+//            }
 
         return ship;
     }

@@ -27,7 +27,7 @@ public class Action{
         this.weight = weight;
     }
 
-    public Ship execute(Ship ship, int argument) {
+    public Ship execute(Ship ship) {
         return ship;
     }
 

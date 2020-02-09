@@ -14,18 +14,18 @@ public class MechanicalFailure extends Action {
         this.waiter = waiter;
         this.event = event;
     }
-    public Ship execute(Ship ship, int argument) {
+    public Ship execute(Ship ship) {
         System.out.println("[EVENT] - Mechanic Failure");
         this.ship = ship;
         double percent = (Math.random()*100) + 1;
         if(percent >= 1 && percent <= 20){
-            executeSailTear(argument);
+            //executeSailTear(argument);
         }else if(percent > 21 && percent <= 40){
-            executeRudderRepair(argument);
+            //executeRudderRepair(argument);
         }else if(percent > 41 && percent <= 60){
-            executeLeak(argument);
+            //executeLeak(argument);
         }else if(percent > 61 && percent <= 80){
-            executeMastSplinter(argument);
+            //executeMastSplinter(argument);
         }else{
             executeCompassMalfunction();
         }

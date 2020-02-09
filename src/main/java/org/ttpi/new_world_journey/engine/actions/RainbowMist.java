@@ -14,14 +14,14 @@ public class RainbowMist extends Action {
         this.waiter = waiter;
         this.event = event;
     }
-    public Ship execute(Ship ship, int argument) {
+    public Ship execute(Ship ship) {
         System.out.println("[EVENT] - Stowaway");
         this.ship = ship;
-        switch (argument){
-            case 1:
-            case 2:
-            default:
-        }
+//        switch (argument){
+//            case 1:
+//            case 2:
+//            default:
+//        }
 
         return ship;
     }

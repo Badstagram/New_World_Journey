@@ -14,19 +14,19 @@ public class Mermaid extends Action{
         this.waiter = waiter;
         this.event = event;
     }
-    public Ship execute(Ship ship, int argument) {
+    public Ship execute(Ship ship) {
         System.out.println("[EVENT] - Mermaid");
         this.ship = ship;
         double percent = (Math.random()*100) + 1;
-        if (argument == 0){
-            return ship;
-        }else if(argument == 1){
-            if(percent >= 1 && percent <= 50){
-                executeMoreMen();
-            }else{
-                executeMoreWomen();
-            }
-        }
+//        if (argument == 0){
+//            return ship;
+//        }else if(argument == 1){
+//            if(percent >= 1 && percent <= 50){
+//                executeMoreMen();
+//            }else{
+//                executeMoreWomen();
+//            }
+//        }
 
         return ship;
     }

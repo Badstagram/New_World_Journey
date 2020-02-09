@@ -25,6 +25,7 @@ public class Ship {
     private int coins;
     private int speedOfShip;
     private int startFood;
+    public boolean readyForNextTick = true;
 
     public int getMAX_HEALTH() {
         return MAX_HEALTH;

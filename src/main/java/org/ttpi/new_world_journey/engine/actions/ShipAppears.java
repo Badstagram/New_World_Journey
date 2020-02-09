@@ -33,21 +33,21 @@ public class ShipAppears extends Action {
     }
 
     @Override
-    public Ship execute(Ship ship, int argument) {
+    public Ship execute(Ship ship) {
         System.out.println("[EVENT] - Stowaway");
         this.ship = ship;
         double percent = (Math.random()*100) + 1;
-        if (argument == 0){
-            return ship;
-        }else if(argument == 1){
-            if(percent >= 1 && percent <= 33){
-                executeShipWrecked();
-            }else if(percent > 33 && percent <= 66){
-                executeAngryNatives();
-            }else{
-                executeFindFood();
-            }
-        }
+//        if (argument == 0){
+//            return ship;
+//        }else if(argument == 1){
+//            if(percent >= 1 && percent <= 33){
+//                executeShipWrecked();
+//            }else if(percent > 33 && percent <= 66){
+//                executeAngryNatives();
+//            }else{
+//                executeFindFood();
+//            }
+//        }
 
         return ship;
     }
