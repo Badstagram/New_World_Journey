@@ -25,6 +25,30 @@ public class Ship {
     private int coins;
     private int startFood;
 
+    public int getMAX_HEALTH() {
+        return MAX_HEALTH;
+    }
+
+    public int getMAX_PASSENGERS() {
+        return MAX_PASSENGERS;
+    }
+
+    public int getHappiness() {
+        return happiness;
+    }
+
+    public int getHealthOfShip() {
+        return healthOfShip;
+    }
+
+    public int getCoins() {
+        return coins;
+    }
+
+    public int getStartFood() {
+        return startFood;
+    }
+
     public int getPassengers() {
         return passengers;
     }
