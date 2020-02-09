@@ -8,7 +8,7 @@ public class Weather extends Action {
     private MessageChannel channel;
     private String discordId;
 
-    public Weather() {
+    public Weather(String discordId, MessageChannel channel) {
         super(90, new int[] {1,2,3});
         channel = channel;
         discordId = discordId;

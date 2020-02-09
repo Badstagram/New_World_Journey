@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5791f50a-3a08-4c47-b6bc-6250c6df99fa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Diseases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Diseases.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Island.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Island.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Kraken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Kraken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/MechanicalFailure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/MechanicalFailure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Mermaid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Mermaid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/RainbowMist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/RainbowMist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/ShipAppears.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/ShipAppears.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Stowaway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Stowaway.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/TreasureMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/TreasureMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/commands/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/commands/Start.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/Engine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Weather.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

@@ -28,7 +28,6 @@ public class Engine {
     private String user;
     private MessageChannel channel;
     private String shipName;
-    private Boolean wasPreviousEvent = false;
     private int ticksThisMonth = 0;
     private int currentMonth = 0;
     private int targetDistance = 3000;
@@ -54,7 +53,7 @@ public class Engine {
     }
 
     public void start() {
-        Island newMerchant = new Island(String user, MessageChannel channel);
+        Island newMerchant = new Island(user, channel);
         newMerchant.forceMerchant(ship);
         nextTick();
     }
@@ -67,57 +66,53 @@ public class Engine {
         }
 
         ship.progressShip(200);
-
         ship.consumeFood(100);
-        if(ship.getStartFood() == 0) {
-            gameOver(false, "User has ran out of food.");
-        }
 
-        Kraken event = new Kraken();
-        ship = event.execute(ship, 1);
-
-        if(!wasPreviousEvent) {
-            //shove all events into an event array
-            Action[] events = {
-                    new Kraken(),
-                    new Cthulu()
-            };
-
-            //Calculate total weight of our events
-            double totalWeight = 0.0d;
-            for(Action ent : events) {
-                totalWeight += ent.getWeight();
-            }
-
-            //Calculate random event
-            int randomIndex = -1;
-            double random = Math.random() * totalWeight;
-            for(int i = 0; i < events.length; i++) {
-                random -= events[i].getWeight();
-                if(random <= 0.0d) {
-                    randomIndex = i;
-                    break;
-                }
-            }
-
-            Action randomWeightedEvent = events[randomIndex];
-            randomWeightedEvent.execute(ship, 1);
-        } else {
-
-        }
 
         if(ship.getCurrentDistance() >= targetDistance) {
             gameOver(true, "User has reached the new world!");
+        } else if(ship.getStartFood() == 0) {
+            gameOver(false, "User has ran out of food.");
+        } else if(ship.getPassengers() == 0) {
+            gameOver(false, "User's passengers have all died.");
         } else {
             nextTick();
         }
-    }
 
-    public Color hex2Rgb(String colorStr) {
-        return new Color(
-                Integer.valueOf( colorStr.substring( 1, 3 ), 16 ),
-                Integer.valueOf( colorStr.substring( 3, 5 ), 16 ),
-                Integer.valueOf( colorStr.substring( 5, 7 ), 16 ) );
+        //shove all events into an event array
+        Action[] events = {
+                new Cthulu(user, channel),
+                new Diseases(user, channel),
+                new Island(user, channel),
+                new Kraken(user, channel),
+                new MechanicalFailure(user, channel),
+                new Mermaid(user, channel),
+                new RainbowMist(user, channel),
+                new ShipAppears(user, channel),
+                new Stowaway(user, channel),
+                new TreasureMap(user, channel),
+                new Weather(user, channel)
+        };
+
+        //Calculate total weight of our events
+        double totalWeight = 0.0d;
+        for(Action ent : events) {
+            totalWeight += ent.getWeight();
+        }
+
+        //Calculate random event
+        int randomIndex = -1;
+        double random = Math.random() * totalWeight;
+        for(int i = 0; i < events.length; i++) {
+            random -= events[i].getWeight();
+            if(random <= 0.0d) {
+                randomIndex = i;
+                break;
+            }
+        }
+
+        Action randomWeightedEvent = events[randomIndex];
+        randomWeightedEvent.execute(ship, 1);
     }
 
 
@@ -127,20 +122,19 @@ public class Engine {
                     .setTitle("You lost...")
                     .setDescription(reason)
                     .setTimestamp(Instant.now())
-                    .setColor(hex2Rgb("#5ccff7"))
+                    .setColor(new Color(92, 207, 247))
                     .build());
         } else {
             channel.sendMessage(new EmbedBuilder()
                     .setTitle("You Won!")
                     .setDescription(reason)
                     .setTimestamp(Instant.now())
-                    .setColor(hex2Rgb("#5ccff7"))
+                    .setColor(new Color(92, 207, 247))
                     .build());
         }
         String user = null;
         MessageChannel channel = null;
         String shipName = null;
-        Boolean wasPreviousEvent = false;
         int ticksThisMonth = 0;
         int currentMonth = 0;
         int targetDistance = 3000;

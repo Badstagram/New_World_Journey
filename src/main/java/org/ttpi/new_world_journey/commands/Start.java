@@ -22,13 +22,6 @@ public class Start extends Command {
         this.help = "Starts the game.";
     }
 
-    public static Color hex2Rgb(String colorStr) {
-        return new Color(
-                Integer.valueOf( colorStr.substring( 1, 3 ), 16 ),
-                Integer.valueOf( colorStr.substring( 3, 5 ), 16 ),
-                Integer.valueOf( colorStr.substring( 5, 7 ), 16 ) );
-    }
-
     @Override
     protected void execute(CommandEvent event) {
         event.reply(
@@ -37,7 +30,7 @@ public class Start extends Command {
                      .setDescription("A message appears with the kings official seal, do you choose to read the letter? \nRespond with (`yes`/`no`)")
                      .setThumbnail("https://i.imgur.com/nlHCKYq.gif")
                      .setTimestamp(Instant.now())
-                     .setColor(hex2Rgb("#5ccff7"))
+                     .setColor(new Color(92, 207, 247))
                      .build()
         );
 
@@ -56,7 +49,7 @@ public class Start extends Command {
                                 .setTitle("Game Over.")
                                 .setDescription("You failed to respond to the king.")
                                 .setTimestamp(Instant.now())
-                                .setColor(hex2Rgb("#5ccff7"))
+                                .setColor(new Color(92, 207, 247))
                                 .build());
                     }
                     if(response.equals("yes")) {
@@ -65,7 +58,7 @@ public class Start extends Command {
                                 .setDescription("The king is pleased to hear back from you! He ask you to go on a voyage, please respond with one of the following ships.\n```Caravel\nEndurance\nMayflower\nSantaMaria\nTrinidad```")
                                 .setTimestamp(Instant.now())
                                 .setThumbnail("https://i.imgur.com/nlHCKYq.gif")
-                                .setColor(hex2Rgb("#5ccff7"))
+                                .setColor(new Color(92, 207, 247))
                                 .build());
                         declareShip(event);
                     }
@@ -90,7 +83,7 @@ public class Start extends Command {
                                 .setTitle("Error!")
                                 .setDescription("Invalid ship choice! Please try again.")
                                 .setTimestamp(Instant.now())
-                                .setColor(hex2Rgb("#5ccff7"))
+                                .setColor(new Color(92, 207, 247))
                                 .build());
                         declareShip(event);
                     } else {
@@ -99,7 +92,7 @@ public class Start extends Command {
                                 .setDescription("Great choice! The king is excited to hear about your travels!")
                                 .setTimestamp(Instant.now())
                                 .setThumbnail("https://i.imgur.com/nlHCKYq.gif")
-                                .setColor(hex2Rgb("#5ccff7"))
+                                .setColor(new Color(92, 207, 247))
                                 .build());
                         Engine gameEngine = new Engine(event.getAuthor().getId(), event.getChannel(), response);
                         gameEngine.start();
