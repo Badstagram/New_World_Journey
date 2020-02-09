@@ -19,6 +19,7 @@ public class Diseases extends Action {
 
 
     public Ship execute(Ship ship, int argument) {
+        System.out.println("[EVENT] - Diseases");
         this.ship = ship;
         double percent = (Math.random() * 100) + 1;
         if (percent >= 1 && percent <= 20) {

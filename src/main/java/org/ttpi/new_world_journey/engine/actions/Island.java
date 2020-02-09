@@ -17,6 +17,7 @@ public class Island extends Action {
     }
 
     public Ship execute(Ship ship, int argument) {
+        System.out.println("[EVENT] - Island");
         this.ship = ship;
         double percent = (Math.random()*100) + 1;
         if (argument == 0){

@@ -23,6 +23,7 @@ import org.ttpi.new_world_journey.engine.ships.*;
 import org.ttpi.new_world_journey.engine.actions.*;
 
 import java.awt.*;
+import java.time.Duration;
 import java.time.Instant;
 
 public class Engine {
@@ -31,8 +32,9 @@ public class Engine {
     private CommandEvent event;
     private int ticksThisMonth = 0;
     private int currentMonth = 0;
-    private int targetDistance = 3000;
+    private int targetDistance = 160;
     private Ship ship;
+    private Instant startTime = Instant.now();
 
     public Engine(EventWaiter waiter, CommandEvent event, String shipName) {
         this.waiter = waiter;
@@ -53,32 +55,14 @@ public class Engine {
         }
     }
 
-    public void start() {
-        Island newMerchant = new Island(waiter, event);
-        newMerchant.forceMerchant(ship);
-        nextTick();
-    }
-
-
     public void nextTick() {
         if(ticksThisMonth == 5) {
             currentMonth += 1;
             ticksThisMonth = 0;
         }
 
-        ship.progressShip(200);
-        ship.consumeFood(100);
-
-        if(ship.getCurrentDistance() >= targetDistance) {
-            gameOver(true, "User has reached the new world!");
-        } else if(ship.getStartFood() == 0) {
-            gameOver(false, "User has ran out of food.");
-        } else if(ship.getPassengers() == 0) {
-            gameOver(false, "User's passengers have all died.");
-        } else if(ship.getHappiness() == 0) {
-            gameOver(false, "The captains crew has performed a mutiny due to low happiness.");
-            nextTick();
-        }
+        ship.progressShip(ship.getSpeedOfShip());
+        ship.consumeFood(ship.getPassengers());
 
         //shove all events into an event array
         Action[] events = {
@@ -114,19 +98,40 @@ public class Engine {
 
         Action randomWeightedEvent = events[randomIndex];
         randomWeightedEvent.execute(ship, 1);
+
+        if(ship.getCurrentDistance() >= targetDistance) {
+            Instant endTime = Instant.now();
+            Duration timeElapsed = Duration.between(startTime, endTime);
+            gameOver(true, "Congratulations! You have made it to the new world, it only took you `" + timeElapsed.toMinutes() + "` Minutes. You ended with `" + ship.getStartFood() + "` food, `" + ship.getPassengers() + "` passengers, `" + ship.getHappiness() + "` happiness, `" + ship.getCoins() + "` coins.");
+        } else if(ship.getStartFood() == 0) {
+            gameOver(false, "You have run out of food! Your passengers starved.");
+        } else if(ship.getPassengers() == 0) {
+            gameOver(false, "All of your passengers have died.");
+        } else if(ship.getHappiness() == 0) {
+            gameOver(false, "The captains crew has performed a mutiny due to low happiness.");
+        } else {
+            System.out.println("[EVENT] - Next game tick occured | CDist: " + ship.getCurrentDistance() + " | CPass: " + ship.getPassengers() + " | CFood: " + ship.getStartFood());
+            ticksThisMonth += 1;
+            nextTick();
+        }
     }
 
+    public void start() {
+        Island newMerchant = new Island(waiter, event);
+        newMerchant.forceMerchant(ship);
+        nextTick();
+    }
 
     public void gameOver(boolean hasWon, String reason) {
         if(!hasWon) {
-            event.getChannel().sendMessage(new EmbedBuilder()
+            event.reply(new EmbedBuilder()
                     .setTitle("You lost...")
                     .setDescription(reason)
                     .setTimestamp(Instant.now())
                     .setColor(new Color(92, 207, 247))
                     .build());
         } else {
-            event.getChannel().sendMessage(new EmbedBuilder()
+            event.reply(new EmbedBuilder()
                     .setTitle("You Won!")
                     .setDescription(reason)
                     .setTimestamp(Instant.now())

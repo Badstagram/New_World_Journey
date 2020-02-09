@@ -15,4 +15,10 @@ public class Stowaway extends Action {
         this.event = event;
     }
 
+    public Ship execute(Ship ship, int argument){
+        this.ship = ship;
+        System.out.println("[EVENT] - Stowaway");
+        return ship;
+    }
+
 }

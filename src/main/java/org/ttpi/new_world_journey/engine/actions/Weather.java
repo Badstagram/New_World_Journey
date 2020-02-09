@@ -17,6 +17,7 @@ public class Weather extends Action {
     }
 
     public Ship execute(Ship ship, int argument) {
+        System.out.println("[EVENT] - Weather Storm");
         this.ship = ship;
         double percent = (Math.random()*100) + 1;
             if(percent >= 1 && percent <= 20){

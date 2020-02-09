@@ -34,6 +34,7 @@ public class ShipAppears extends Action {
 
     @Override
     public Ship execute(Ship ship, int argument) {
+        System.out.println("[EVENT] - Stowaway");
         this.ship = ship;
         double percent = (Math.random()*100) + 1;
         if (argument == 0){

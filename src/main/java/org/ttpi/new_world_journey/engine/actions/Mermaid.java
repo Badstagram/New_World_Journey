@@ -15,6 +15,7 @@ public class Mermaid extends Action{
         this.event = event;
     }
     public Ship execute(Ship ship, int argument) {
+        System.out.println("[EVENT] - Mermaid");
         this.ship = ship;
         double percent = (Math.random()*100) + 1;
         if (argument == 0){

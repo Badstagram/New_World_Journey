@@ -20,6 +20,7 @@ public class Cthulu extends Action {
 
     @Override
     public Ship execute(Ship ship, int argument) {
+        System.out.println("[EVENT] - Cthulu");
         this.ship = ship;
         double random = (Math.random()*100) + 1;
         event.reply(new EmbedBuilder()

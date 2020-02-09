@@ -15,6 +15,7 @@ public class RainbowMist extends Action {
         this.event = event;
     }
     public Ship execute(Ship ship, int argument) {
+        System.out.println("[EVENT] - Stowaway");
         this.ship = ship;
         switch (argument){
             case 1:
