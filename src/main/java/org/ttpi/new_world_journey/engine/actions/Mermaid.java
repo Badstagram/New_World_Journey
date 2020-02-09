@@ -1,16 +1,18 @@
 package org.ttpi.new_world_journey.engine.actions;
 
+import com.jagrosh.jdautilities.command.CommandEvent;
+import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import net.dv8tion.jda.api.entities.MessageChannel;
 import org.ttpi.new_world_journey.engine.ships.Ship;
 
 public class Mermaid extends Action{
-    private MessageChannel channel;
-    private String discordId;
     private Ship ship;
-    public Mermaid(String discordId, MessageChannel channel) {
+    private EventWaiter waiter;
+    private CommandEvent event;
+    public Mermaid(EventWaiter waiter, CommandEvent event) {
         super(10, new int[] {1,2,3});
-        channel = channel;
-        discordId = discordId;
+        this.waiter = waiter;
+        this.event = event;
     }
     public Ship execute(Ship ship, int argument) {
         this.ship = ship;

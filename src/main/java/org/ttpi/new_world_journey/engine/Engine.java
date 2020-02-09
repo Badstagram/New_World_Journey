@@ -15,6 +15,8 @@
  */
 package org.ttpi.new_world_journey.engine;
 
+import com.jagrosh.jdautilities.command.CommandEvent;
+import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageChannel;
 import org.ttpi.new_world_journey.engine.ships.*;
@@ -25,17 +27,17 @@ import java.time.Instant;
 
 public class Engine {
 
-    private String user;
-    private MessageChannel channel;
+    private EventWaiter waiter;
+    private CommandEvent event;
     private String shipName;
     private int ticksThisMonth = 0;
     private int currentMonth = 0;
     private int targetDistance = 3000;
     private Ship ship;
 
-    public Engine(String discordId, MessageChannel channel, String shipName) {
-        this.channel = channel;
-        this.user = discordId;
+    public Engine(EventWaiter waiter, CommandEvent event, String shipName) {
+        this.waiter = waiter;
+        this.event = event;
         String lowerCase = shipName.toLowerCase();
         if ("mayflower".equals(lowerCase)) {
             this.ship = new Mayflower();
@@ -53,7 +55,7 @@ public class Engine {
     }
 
     public void start() {
-        Island newMerchant = new Island(user, channel);
+        Island newMerchant = new Island(waiter, event);
         newMerchant.forceMerchant(ship);
         nextTick();
     }
@@ -68,30 +70,30 @@ public class Engine {
         ship.progressShip(200);
         ship.consumeFood(100);
 
-
         if(ship.getCurrentDistance() >= targetDistance) {
             gameOver(true, "User has reached the new world!");
         } else if(ship.getStartFood() == 0) {
             gameOver(false, "User has ran out of food.");
         } else if(ship.getPassengers() == 0) {
             gameOver(false, "User's passengers have all died.");
-        } else {
+        } else if(ship.getHappiness() == 0) {
+            gameOver(false, "The captains crew has performed a mutiny due to low happiness.");
             nextTick();
         }
 
         //shove all events into an event array
         Action[] events = {
-                new Cthulu(user, channel),
-                new Diseases(user, channel),
-                new Island(user, channel),
-                new Kraken(user, channel),
-                new MechanicalFailure(user, channel),
-                new Mermaid(user, channel),
-                new RainbowMist(user, channel),
-                new ShipAppears(user, channel),
-                new Stowaway(user, channel),
-                new TreasureMap(user, channel),
-                new Weather(user, channel)
+                new Cthulu(waiter, event),
+                new Diseases(waiter, event),
+                new Island(waiter, event),
+                new Kraken(waiter, event),
+                new MechanicalFailure(waiter, event),
+                new Mermaid(waiter, event),
+                new RainbowMist(waiter, event),
+                new ShipAppears(waiter, event),
+                new Stowaway(waiter, event),
+                new TreasureMap(waiter, event),
+                new Weather(waiter, event)
         };
 
         //Calculate total weight of our events

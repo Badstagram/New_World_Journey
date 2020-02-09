@@ -1,17 +1,19 @@
 package org.ttpi.new_world_journey.engine.actions;
 
+import com.jagrosh.jdautilities.command.CommandEvent;
+import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import net.dv8tion.jda.api.entities.MessageChannel;
 import org.ttpi.new_world_journey.engine.ships.Ship;
 
 public class TreasureMap extends Action {
-    private MessageChannel channel;
-    private String discordId;
+    private EventWaiter waiter;
+    private CommandEvent event;
     private Ship ship;
 
-    public TreasureMap(String discordId, MessageChannel channel) {
+    public TreasureMap(EventWaiter waiter, CommandEvent event) {
         super(30, new int[] {1,2});
-        channel = channel;
-        discordId = discordId;
+        this.waiter = waiter;
+        this.event = event;
     }
 //    public Ship execute(Ship ship, int argument) {
 //        this.ship = ship;
