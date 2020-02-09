@@ -15,7 +15,11 @@
  */
 package org.ttpi.new_world_journey.engine.actions;
 
+<<<<<<< Updated upstream
 
+=======
+import org.ttpi.new_world_journey.engine.ships.Ship;
+>>>>>>> Stashed changes
 
 public class Action{
     private int weight;
@@ -25,6 +29,10 @@ public class Action{
     public Action(int weight, int[] restrictedMonths) {
         this.restrictedMonths = restrictedMonths;
         this.weight = weight;
+    }
+
+    public Ship execute(Ship ship, int argument) {
+        return ship;
     }
 
     public int getWeight() {

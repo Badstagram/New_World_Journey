@@ -23,7 +23,7 @@ public class Engine {
     private String user;
     private String channel;
     private String shipName;
-    private Boolean wasPreviousEvent = false;
+    private Boolean wasPreviousEvent = true;
     private int ticksThisMonth = 0;
     private int currentMonth = 0;
     private int targetDistance = 3000;
@@ -70,7 +70,8 @@ public class Engine {
         if(!wasPreviousEvent) {
             //shove all events into an event array
             Action[] events = {
-                    new Kraken()
+                    new Kraken(),
+                    new Cthulu()
             };
 
             //Calculate total weight of our events
@@ -91,9 +92,9 @@ public class Engine {
             }
 
             Action randomWeightedEvent = events[randomIndex];
-
+            randomWeightedEvent.execute(ship, 1);
         } else {
-            // Call idle Event
+
         }
 
     }
@@ -104,6 +105,10 @@ public class Engine {
         } else {
             //User won the game
         }
+    }
+
+    public void start() {
+
     }
 
     public String getUser() {

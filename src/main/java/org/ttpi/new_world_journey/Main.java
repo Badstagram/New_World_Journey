@@ -20,28 +20,26 @@ import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
+import org.ttpi.new_world_journey.commands.Start;
 import org.ttpi.new_world_journey.engine.Engine;
 
+import javax.security.auth.login.LoginException;
 import java.util.EnumSet;
 
 public class Main {
-    public static void main(String[] args) {
-        Engine controller = new Engine("1", "", "mayflower");
-        controller.nextTick();
-        controller.getShip();
-        controller.getCurrentMonth();
-        controller.getTargetDistance();
-        controller.getShipName();
-        controller.getTicksThisMonth();
-        controller.getMilesLeft();
-
-        JDABuilder builder = new JDABuilder("Njc1NzY0NDI2MTIwMzY0MDMz.Xj8_IA.sxDVF9jECH-yD4_DTsy-BHk0vz8");
-        builder.addEventListeners(new listener());
-        try {
-            builder.build();
-        } catch (Exception e) {
-            System.out.println("[ERROR]: " + e);
-        }
-
+    public static void main(String[] args) throws LoginException {
+        EventWaiter waiter = new EventWaiter();
+        CommandClientBuilder client = new CommandClientBuilder();
+        client.setEmojis("\uD83D\uDE03", "\uD83D\uDE2E", "\uD83D\uDE26");
+        client.setPrefix("!");
+        client.addCommands(new Start(waiter));
+        client.setOwnerId("275473481108291584");
+        client.setCoOwnerIds("288133633552809984");
+        client.setCoOwnerIds("174511937151827969");
+        new JDABuilder(AccountType.BOT)
+                .setToken("Njc1NzY0NDI2MTIwMzY0MDMz.Xj9Fhg.OoBwgym5hz4VZzV42Hksoz8EixI")
+                .setActivity(Activity.playing("loading..."))
+                .addEventListeners(waiter, client.build())
+                .build();
     }
 }
