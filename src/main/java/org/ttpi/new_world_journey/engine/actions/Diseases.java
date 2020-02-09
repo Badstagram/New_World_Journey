@@ -7,6 +7,7 @@ public class Diseases extends Action {
 
     private MessageChannel channel;
     private String discordId;
+    private Ship ship;
 
     public Diseases(String discordId, MessageChannel channel) {
         super(90, new int[]{2, 3});
@@ -16,16 +17,16 @@ public class Diseases extends Action {
 
 
     public Ship execute(Ship ship, int argument) {
+        this.ship = ship;
         double percent = (Math.random() * 100) + 1;
         if (percent >= 1 && percent <= 20) {
             executeScurvy(argument);
         } else if (percent > 20 && percent <= 30) {
             executeDisentary(argument);
-        } else (percent > 30 && percent <= 100) {
+        } else {
             executeFlu(argument);
-
-            return ship;
         }
+        return ship;
     }
 
     public void executeScurvy(int n){

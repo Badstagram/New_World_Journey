@@ -112,7 +112,6 @@ public class Ship {
             happiness += n;
         }
     }
-    public void changeDistance
 
     public int getCurrentDistance() {
         return currentDistance;

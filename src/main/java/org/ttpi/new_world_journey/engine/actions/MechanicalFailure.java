@@ -4,6 +4,7 @@ import net.dv8tion.jda.api.entities.MessageChannel;
 import org.ttpi.new_world_journey.engine.ships.Ship;
 
 public class MechanicalFailure extends Action {
+    private Ship ship;
     private MessageChannel channel;
     private String discordId;
     public MechanicalFailure(String discordId, MessageChannel channel) {
@@ -12,6 +13,7 @@ public class MechanicalFailure extends Action {
         discordId = discordId;
     }
     public Ship execute(Ship ship, int argument) {
+        this.ship = ship;
         double percent = (Math.random()*100) + 1;
         if(percent >= 1 && percent <= 20){
             executeSailTear(argument);

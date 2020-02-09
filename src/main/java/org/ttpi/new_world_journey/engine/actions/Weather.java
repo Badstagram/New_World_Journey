@@ -15,6 +15,7 @@ public class Weather extends Action {
     }
 
     public Ship execute(Ship ship, int argument) {
+        this.ship = ship;
         double percent = (Math.random()*100) + 1;
             if(percent >= 1 && percent <= 20){
                 executeFog();
@@ -56,7 +57,6 @@ public class Weather extends Action {
         if(ship.getHappiness() <= 40){
             ship.changePassengers(-5);
         }
-        ship.
     }
     public void executeStorm(int n){
 

@@ -32,6 +32,7 @@ public class ShipAppears extends Action {
 
     @Override
     public Ship execute(Ship ship, int argument) {
+        this.ship = ship;
         double percent = (Math.random()*100) + 1;
         if (argument == 0){
             return ship;

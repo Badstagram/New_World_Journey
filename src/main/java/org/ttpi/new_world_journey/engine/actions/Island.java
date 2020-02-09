@@ -16,7 +16,7 @@ public class Island extends Action {
     private Ship ship;
 
     public Ship execute(Ship ship, int argument) {
-        ship = ship;
+        this.ship = ship;
         double percent = (Math.random()*100) + 1;
         if (argument == 0){
             return ship;
