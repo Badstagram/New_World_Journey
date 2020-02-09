@@ -29,7 +29,6 @@ public class Engine {
 
     private EventWaiter waiter;
     private CommandEvent event;
-    private String shipName;
     private int ticksThisMonth = 0;
     private int currentMonth = 0;
     private int targetDistance = 3000;
@@ -120,14 +119,14 @@ public class Engine {
 
     public void gameOver(boolean hasWon, String reason) {
         if(!hasWon) {
-            channel.sendMessage(new EmbedBuilder()
+            event.getChannel().sendMessage(new EmbedBuilder()
                     .setTitle("You lost...")
                     .setDescription(reason)
                     .setTimestamp(Instant.now())
                     .setColor(new Color(92, 207, 247))
                     .build());
         } else {
-            channel.sendMessage(new EmbedBuilder()
+            event.getChannel().sendMessage(new EmbedBuilder()
                     .setTitle("You Won!")
                     .setDescription(reason)
                     .setTimestamp(Instant.now())
@@ -141,14 +140,6 @@ public class Engine {
         int currentMonth = 0;
         int targetDistance = 3000;
         Ship ship = null;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public String getShipName() {
-        return shipName;
     }
 
     public int getTicksThisMonth() {
