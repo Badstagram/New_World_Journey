@@ -189,7 +189,30 @@ public class ShipAppear extends Action {
 
                                             // event executions
                                             g -> {
-                                                switch(Integer.parseInt())
+                                                switch(Integer.parseInt(g.getMessage().getContentRaw())){
+                                                    case 1:
+                                                        event.reply(new EmbedBuilder()
+                                                                .setTitle("The man approaches you sensually")
+                                                                .setDescription("```I have ... food. 10 provisions for 200 gold\n 1. Buy\n 2. Don't```")
+                                                                .setThumbnail("https://cdn.discordapp.com/attachments/669674609938792471/675887557623676948/cts.gif")
+                                                                .setTimestamp(Instant.now())
+                                                                .setColor(new Color(92, 207, 247))
+                                                                .build());
+                                                        waiter.waitForEvent(MessageReceivedEvent.class,
+
+                                                                //filtering
+                                                                h -> h.getAuthor().equals(event.getAuthor())
+                                                                        && h.getChannel().equals(event.getChannel())
+                                                                        && !h.getMessage().equals(event.getMessage()),
+
+                                                                // event executions
+                                                                h -> {
+                                                                    switch(Integer.parseInt(h.getMessage().getContentRaw())){
+                                                                        
+                                                                    }
+                                                                },5, TimeUnit.MINUTES, () -> event.reply("Sorry, you took too long to respond and died."));
+
+                                                }
                                             },5, TimeUnit.MINUTES, () -> event.reply("Sorry, you took too long to respond and died."));
 
                                 }
