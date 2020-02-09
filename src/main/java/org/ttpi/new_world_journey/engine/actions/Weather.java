@@ -10,7 +10,7 @@ public class Weather extends Action {
     public Ship execute(Ship ship, int argument) {
         double percent = (Math.random()*100) + 1;
             if(percent >= 1 && percent <= 20){
-                executeFog(argument);
+                executeFog();
             }else if(percent > 20 && percent <= 30){
                 executeWhirlpool(argument);
             }else if(percent > 30 && percent <= 80){
@@ -36,10 +36,20 @@ public class Weather extends Action {
                 //Escape whirlpool, but everyone is scared
                 ship.changePassengers(-2);
                 ship.changeHappiness(-5);
+                break;
+            case 2:
+                //The gods of the sea smile on you and you are saved
+                ship.changeHappiness(15);
+                ship.changeHealth(-15);
+                break;
         }
     }
-    public void executeFog(int n){
-
+    public void executeFog(){
+        //People escape in the fog
+        if(ship.getHappiness() <= 40){
+            ship.changePassengers(-5);
+        }
+        ship.
     }
     public void executeStorm(int n){
 

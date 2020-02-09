@@ -23,6 +23,7 @@ public class Ship {
     private int happiness;
     private int healthOfShip;
     private int coins;
+    private int speedOfShip;
     private int startFood;
 
     public int getMAX_HEALTH() {
@@ -45,6 +46,10 @@ public class Ship {
         return coins;
     }
 
+    public int getSpeedOfShip() {
+        return speedOfShip;
+    }
+
     public int getStartFood() {
         return startFood;
     }
@@ -53,12 +58,13 @@ public class Ship {
         return passengers;
     }
 
-    public Ship(int passengers, int healthOfShip, int coins, int startFood) {
+    public Ship(int passengers, int healthOfShip, int coins, int startFood, int speedOfShip) {
         this.passengers = passengers;
         this.happiness = 100;
         this.healthOfShip = healthOfShip;
         this.coins = coins;
         this.startFood = startFood;
+        this.speedOfShip = speedOfShip;
         MAX_HEALTH = healthOfShip;
         MAX_PASSENGERS = passengers;
 
@@ -106,6 +112,7 @@ public class Ship {
             happiness += n;
         }
     }
+    public void changeDistance
 
     public int getCurrentDistance() {
         return currentDistance;

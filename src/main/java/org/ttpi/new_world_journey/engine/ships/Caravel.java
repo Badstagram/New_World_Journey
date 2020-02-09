@@ -17,7 +17,7 @@ package org.ttpi.new_world_journey.engine.ships;
 
 public class Caravel extends Ship {
     public Caravel() {
-        super(1,1,1,1);
+        super(100,60,5000,300,200);
     }
 
 }
