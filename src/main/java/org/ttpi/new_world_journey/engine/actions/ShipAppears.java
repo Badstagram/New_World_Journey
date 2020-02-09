@@ -17,6 +17,7 @@ package org.ttpi.new_world_journey.engine.actions;
 import org.ttpi.new_world_journey.engine.ships.Ship;
 
 
+
 public class ShipAppears extends Action {
     private Ship ship;
 
@@ -30,36 +31,30 @@ public class ShipAppears extends Action {
             return ship;
         }else if(argument == 1){
             if(percent >= 1 && percent <= 33){
-
+                executeShipWrecked();
             }else if(percent > 33 && percent <= 66){
-
+                executeAngryNatives();
             }else{
-
+                executeFindFood();
             }
         }
 
         return ship;
     }
 
-    public void executePirates(int argument){
-        switch(argument){
-            case 0:
-            case 1:
-            case 2:
-        }
+    //Pick up new passengers, other members become unhappy
+    public void executeShipWrecked(){
+        ship.changePassengers(10);
+        ship.changeHappiness(-5);
     }
-    public void executeAbandonedShip(int argument){
-        switch(argument){
-            case 0:
-            case 1:
-            case 2:
-        }
+    //Angry natives attack ship
+    public void executeAngryNatives(){
+        ship.changeHealth(-10);
+        ship.changeHappiness(-10);
     }
-    public void executeMerchant(int argument){
-        switch(argument){
-            case 0:
-            case 1:
-            case 2:
-        }
+    //Find all kinds of fruit for the ship.
+    public void executeFindFood(){
+        ship.consumeFood(-10);
+        ship.changeHappiness(10);
     }
 }

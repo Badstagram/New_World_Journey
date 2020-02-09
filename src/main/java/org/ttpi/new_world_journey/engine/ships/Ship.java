@@ -19,11 +19,15 @@ public class Ship {
     final int MAX_HEALTH;
     final private int MAX_PASSENGERS;
     private int currentDistance;
-    public int passengers;
+    private int passengers;
     private int happiness;
     private int healthOfShip;
     private int coins;
     private int startFood;
+
+    public int getPassengers() {
+        return passengers;
+    }
 
     public Ship(int passengers, int healthOfShip, int coins, int startFood) {
         this.passengers = passengers;
@@ -41,13 +45,11 @@ public class Ship {
         return this.currentDistance;
     }
 
-    public int consumeFood(int n) {
+    public void consumeFood(int n) {
         if (this.startFood - n <= 0) {
             this.startFood = 0;
-            return 0;
         } else {
             this.startFood -= n;
-            return this.startFood;
         }
     }
 
