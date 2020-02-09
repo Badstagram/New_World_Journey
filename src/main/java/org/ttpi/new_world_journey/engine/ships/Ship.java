@@ -70,9 +70,8 @@ public class Ship {
 
     }
 
-    public int progressShip(int n) {
+    public void progressShip(int n) {
         this.currentDistance += n;
-        return this.currentDistance;
     }
 
     public void consumeFood(int n) {
