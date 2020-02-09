@@ -4,8 +4,8 @@ import net.dv8tion.jda.api.entities.MessageChannel;
 import org.ttpi.new_world_journey.engine.ships.Ship;
 
 public class RainbowMist extends Action {
-    MessageChannel channel;
-    String discordId;
+    private MessageChannel channel;
+    private String discordId;
     public RainbowMist(String discordId, MessageChannel channel) {
         super(1, new int[] {2});
         channel = channel;

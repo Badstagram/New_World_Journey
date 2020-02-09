@@ -5,8 +5,8 @@ import org.ttpi.new_world_journey.engine.ships.Ship;
 
 public class Diseases extends Action {
 
-    MessageChannel channel;
-    String discordId;
+    private MessageChannel channel;
+    private String discordId;
 
     public Diseases(String discordId, MessageChannel channel) {
         super(90, new int[]{2, 3});

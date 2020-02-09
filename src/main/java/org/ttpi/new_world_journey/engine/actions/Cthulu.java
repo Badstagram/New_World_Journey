@@ -4,8 +4,8 @@ import org.ttpi.new_world_journey.engine.ships.Ship;
 
 public class Cthulu extends Action {
     private Ship ship;
-    MessageChannel channel;
-    String discordId;
+    private MessageChannel channel;
+    private String discordId;
     public Cthulu(String discordId, MessageChannel channel) {
         super(1, new int[] {2,3});
         channel = channel;

@@ -1,12 +1,19 @@
 package org.ttpi.new_world_journey.engine.actions;
 
+import net.dv8tion.jda.api.entities.MessageChannel;
 import org.ttpi.new_world_journey.engine.ships.Ship;
 
 public class Weather extends Action {
     private Ship ship;
+    private MessageChannel channel;
+    private String discordId;
+
     public Weather() {
         super(90, new int[] {1,2,3});
+        channel = channel;
+        discordId = discordId;
     }
+
     public Ship execute(Ship ship, int argument) {
         double percent = (Math.random()*100) + 1;
             if(percent >= 1 && percent <= 20){

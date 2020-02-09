@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5791f50a-3a08-4c47-b6bc-6250c6df99fa" name="Default Changelist" comment="" />
+    <list default="true" id="5791f50a-3a08-4c47-b6bc-6250c6df99fa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Diseases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Diseases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Island.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Island.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Kraken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Kraken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/MechanicalFailure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/MechanicalFailure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Mermaid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Mermaid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/RainbowMist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/RainbowMist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/ShipAppears.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/ShipAppears.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Stowaway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Stowaway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/TreasureMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/TreasureMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ttpi/new_world_journey/engine/actions/Weather.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +27,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -24,7 +39,11 @@
   </component>
   <component name="ProjectId" id="1XXDwIwCYd4iAi1vHAWXrGWq87i" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -39,6 +58,19 @@
     </option>
   </component>
   <component name="RunManager">
+    <configuration name="Engine" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ttpi.new_world_journey.engine.Engine" />
+      <module name="new_world_journey" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ttpi.new_world_journey.engine.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.ttpi.new_world_journey.Main" />
       <module name="new_world_journey" />
@@ -102,6 +134,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Engine" />
       </list>
     </recent_temporary>
   </component>
@@ -117,5 +150,23 @@
       <updated>1581183782189</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint enabled="true" type="java-exception" />
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

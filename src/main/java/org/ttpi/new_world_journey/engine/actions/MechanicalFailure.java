@@ -4,8 +4,8 @@ import net.dv8tion.jda.api.entities.MessageChannel;
 import org.ttpi.new_world_journey.engine.ships.Ship;
 
 public class MechanicalFailure extends Action {
-    MessageChannel channel;
-    String discordId;
+    private MessageChannel channel;
+    private String discordId;
     public MechanicalFailure(String discordId, MessageChannel channel) {
         super(30, new int[] {1,2,3});
         channel = channel;
