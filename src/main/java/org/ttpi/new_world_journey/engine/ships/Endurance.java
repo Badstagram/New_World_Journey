@@ -17,6 +17,6 @@ package org.ttpi.new_world_journey.engine.ships;
 
 public class Endurance extends Ship{
     public Endurance() {
-        super(20,300,1000,30,100);
+        super(20,300,1000,30,100,"endurance");
     }
 }

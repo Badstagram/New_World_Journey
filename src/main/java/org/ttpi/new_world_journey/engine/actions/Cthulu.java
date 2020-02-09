@@ -25,10 +25,10 @@ public class Cthulu extends Action {
     public Ship execute(Ship ship) {
         System.out.println("[EVENT] - Cthulu");
         this.ship = ship;
-        double random = (Math.random()*100) + 1;
+        double percent = (Math.random()*100) + 1;
         event.reply(new EmbedBuilder()
                 .setTitle("Cthulu Appears!")
-                .setDescription("What will you do against such a terrifying foe? \n'''1. Fight?\n2. Flee?\n3. Pray?'''")
+                .setDescription("```What will you do against such a terrifying foe? \n'''1. Fight?\n2. Flee?\n3. Pray?```")
                 .setThumbnail("https://cdn.discordapp.com/attachments/669674609938792471/675887557623676948/cts.gif")
                 .setTimestamp(Instant.now())
                 .setColor(new Color(92, 207, 247))
@@ -45,19 +45,21 @@ public class Cthulu extends Action {
                     switch (Integer.parseInt(e.getMessage().getContentRaw())){
                         //Choose to fight
                         case 1:
-                            if(random >= 1 && random <= 33){
+                            if(percent >= 1 && percent <= 33){
                                 event.reply(new EmbedBuilder()
                                         .setTitle("Cthulu destroys your mind")
                                         .setThumbnail("https://cdn.discordapp.com/attachments/669674609938792471/675887557623676948/cts.gif")
+                                        .setDescription("```He kills everybody'''")
                                         .setTimestamp(Instant.now())
                                         .setColor(new Color(92, 207, 247))
                                         .build());
                                 ship.changePassengers(-(ship.getPassengers()));
                                 break;
-                            }else if(random > 33 && random <= 66){
+                            }else if(percent > 33 && percent <= 66){
                                 event.reply(new EmbedBuilder()
                                         .setTitle("Cthulu takes the souls of your crew")
                                         .setThumbnail("https://cdn.discordapp.com/attachments/669674609938792471/675887557623676948/cts.gif")
+                                        .setDescription("```Your passenger's happiness goes down by 50%```")
                                         .setTimestamp(Instant.now())
                                         .setColor(new Color(92, 207, 247))
                                         .build());
@@ -66,7 +68,7 @@ public class Cthulu extends Action {
                             }else {
                                 event.reply(new EmbedBuilder()
                                         .setTitle("Cthulu does something but your puny minds could never understand..")
-                                        .setDescription("'''Nothing happens...'''")
+                                        .setDescription("```Nothing happens...```")
                                         .setThumbnail("https://cdn.discordapp.com/attachments/669674609938792471/675887557623676948/cts.gif")
                                         .setTimestamp(Instant.now())
                                         .setColor(new Color(92, 207, 247))
@@ -85,10 +87,10 @@ public class Cthulu extends Action {
                             ship.progressShip(-ship.getSpeedOfShip()*2);
                             break;
                         case 3:
-                            if(random >= 1 && random < 50){
+                            if(percent >= 1 && percent < 50){
                                 event.reply(new EmbedBuilder()
                                         .setTitle("Cthulu is flattered")
-                                        .setDescription("'''Cthulu lets you go so you can spread his religion'''")
+                                        .setDescription("```Cthulu lets you go so you can spread his religion```")
                                         .setThumbnail("https://cdn.discordapp.com/attachments/669674609938792471/675887557623676948/cts.gif")
                                         .setTimestamp(Instant.now())
                                         .setColor(new Color(92, 207, 247))
@@ -98,7 +100,7 @@ public class Cthulu extends Action {
                             }else{
                                 event.reply(new EmbedBuilder()
                                         .setTitle("Cthulu is flattered")
-                                        .setDescription("'''Cthulu kills you as a sacrifice to himself'''")
+                                        .setDescription("```Cthulu kills you as a sacrifice to himself```")
                                         .setThumbnail("https://cdn.discordapp.com/attachments/669674609938792471/675887557623676948/cts.gif")
                                         .setTimestamp(Instant.now())
                                         .setColor(new Color(92, 207, 247))

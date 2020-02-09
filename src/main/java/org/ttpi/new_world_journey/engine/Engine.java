@@ -73,7 +73,7 @@ public class Engine {
                 new MechanicalFailure(waiter, event),
                 new Mermaid(waiter, event),
                 new RainbowMist(waiter, event),
-                new ShipAppears(waiter, event),
+                new Island(waiter, event),
                 new Stowaway(waiter, event),
                 new TreasureMap(waiter, event),
                 new Weather(waiter, event)

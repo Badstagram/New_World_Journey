@@ -22,9 +22,21 @@ public class Ship {
     private int passengers;
     private int happiness;
     private int healthOfShip;
+
+    public int getDamageCapabilities() {
+        return damageCapabilities;
+    }
+
     private int coins;
     private int speedOfShip;
+    private int damageCapabilities;
+
+    public String getName() {
+        return name;
+    }
+
     private int startFood;
+    private String name;
     public boolean readyForNextTick = true;
 
     public int getMAX_HEALTH() {
@@ -59,13 +71,14 @@ public class Ship {
         return passengers;
     }
 
-    public Ship(int passengers, int healthOfShip, int coins, int startFood, int speedOfShip) {
+    public Ship(int passengers, int healthOfShip, int coins, int startFood, int speedOfShip, String name) {
         this.passengers = passengers;
         this.happiness = 100;
         this.healthOfShip = healthOfShip;
         this.coins = coins;
         this.startFood = startFood;
         this.speedOfShip = speedOfShip;
+        this.name = name;
         MAX_HEALTH = healthOfShip;
         MAX_PASSENGERS = passengers;
 
@@ -123,6 +136,9 @@ public class Ship {
         }else{
             coins += n;
         }
+    }
+    public void changeDamageOutput(int n){
+        this.damageCapabilities += n;
     }
 
 }

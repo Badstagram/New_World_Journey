@@ -17,6 +17,6 @@ package org.ttpi.new_world_journey.engine.ships;
 
 public class SantaMaria extends Ship{
     public SantaMaria() {
-        super(75,75,3000,225, 250);
+        super(75,75,3000,225, 250, "santamaria");
     }
 }
