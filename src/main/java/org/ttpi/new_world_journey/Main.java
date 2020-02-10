@@ -36,7 +36,7 @@ public class Main {
         client.setCoOwnerIds("288133633552809984");
         client.setCoOwnerIds("174511937151827969");
         new JDABuilder(AccountType.BOT)
-                .setToken("Njc1NzY0NDI2MTIwMzY0MDMz.Xj-UWw.9r0cb8IQHeC9h9DZMIqa3BAd1lw")
+                .setToken("<Bot Token Removed>")
                 .setActivity(Activity.playing("loading..."))
                 .addEventListeners(waiter, client.build())
                 .build();
